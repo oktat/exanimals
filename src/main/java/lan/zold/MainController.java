@@ -43,6 +43,12 @@ public class MainController {
         for (int i = 0; i < animalCheckboxes.length; i++) {
             grid.add(animalCheckboxes[i], i % 5, i / 5);
         }
+        for (CheckBox checkBox : animalCheckboxes) {
+            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                System.out.println(checkBox.getText() + " state changed to: " + newValue);
+            });
+        }
+
     }
 
     @FXML
